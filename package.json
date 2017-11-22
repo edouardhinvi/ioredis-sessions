@@ -1,0 +1,32 @@
+{
+  "name": "ioredis-sessions",
+  "version": "1.0.0",
+  "description": "An advanced session store for NodeJS and Redis based on ioredis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduleboss/ioredis-sessions.git"
+  },
+  "keywords": [
+    "nodejs",
+    "redis",
+    "session-management",
+    "session-store",
+    "sentinel",
+    "sentinel-cluster"
+  ],
+  "author": "Edouard HINVI <eduleboss@gmail.com> (https://about.me/edouardhinvi)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eduleboss/ioredis-sessions/issues"
+  },
+  "homepage": "https://github.com/eduleboss/ioredis-sessions#readme",
+  "dependencies": {
+    "events": "^1.1.1",
+    "ioredis": "^3.2.1",
+    "lodash": "^4.17.4"
+  }
+}
