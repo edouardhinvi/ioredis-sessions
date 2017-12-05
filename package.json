@@ -1,6 +1,6 @@
 {
   "name": "ioredis-sessions",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "An advanced session store for NodeJS and Redis based on ioredis",
   "main": "index.js",
   "scripts": {
