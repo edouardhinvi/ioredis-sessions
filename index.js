@@ -63,11 +63,11 @@ IoRedisSessions = (function(superClass) {
       this.redis = o.client;
     } else if (o.options && o.options.url) {
       this.redis = new RedisInstance(o.options);
-    } else if (o.sentinels && o.name) {
+    } else if (o.sentinels && o.name && o.password) {
       this.redis = new RedisInstance({
         sentinels: o.sentinels,
         name: o.name,
-        options: o.options
+        password: o.password
       });
     } else {
       this.redis = new RedisInstance(o.port || 6379, o.host || "127.0.0.1", o.options || {});
@@ -145,13 +145,23 @@ IoRedisSessions = (function(superClass) {
         cb(err);
         return;
       }
-      if (resp[4] !== "OK") {
-        cb("Unknow error");
-        return;
-      }
-      cb(null, {
-        token: token
-      });
+      var p = Promise.resolve(resp);
+      p.then(function(v){
+        if (v[4][1] !== 'OK') {
+          cb("Unknow error");
+          return;
+        }
+        cb(null, {
+          token: token
+        });
+      })
+      // if (resp[4] !== [ null, 'OK' ]) {
+      //   cb("Unknow error");
+      //   return;
+      // }
+      // cb(null, {
+      //   token: token
+      // });
     });
   };
 
