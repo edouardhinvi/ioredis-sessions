@@ -562,7 +562,7 @@ IoRedisSessions = (function(superClass) {
         }
         o = [];
         for (j = 0, len = resp.length; j < len; j++) {
-          e = resp[j];
+          e = resp[j][1];
           session = _this._prepareSession(e);
           if (session !== null) {
             o.push(session);
